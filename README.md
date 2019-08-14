@@ -1,5 +1,3 @@
 ### My first repository!
 
-If you see this file on my project, it's because I'm learning Git.
-
-Thank you so much for reading! 
+Projeto de front-end https://s3.amazonaws.com/gupy5/production/companies/105/emails/1560877485980/289b4fc0-91eb-11e9-add8-034c8b7e5c2a/desenvolvimento_front-end_-_v2.pdf
