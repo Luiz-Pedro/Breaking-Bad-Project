@@ -1,26 +1,27 @@
 :root {
-    --main-color: #222326; 
-    --secondary-color: #19E68C;
-    --text-color: #ffffff;
+    --corPreta: #222326; 
+    --corVerde: #0B5731;
+    --corBranca: #ffffff;
+    --corLaranja: #F86300;
   }
 html{
-    background-color: var(--main-color); 
+    background-color: var(--corPreta); 
     font-family: 'Roboto', sans-serif;
-    color:var(--text-color);
+    color:var(--corBranca);
 }  
 
 .estilobotao{
-    color: var(--main-color);
-    background-color: white;
-    border: 2px solid white;
+    color: var(--corPreta);
+    background-color: var(--corBranca);
+    border: 2px solid var(--corBranca);
     border-radius: 100px;
     padding: 1em 2em 1em 2em;
     font-size: 1em;
 }
 .estilobotao:hover{
-    background-color: var(--main-color);
-    color: white;
-    border: 2px solid white;
+    background-color: var(--corPreta);
+    color: var(--corBranca);
+    border: 2px solid var(--corBranca);
 }
 .container{
     display: flex;  
@@ -42,7 +43,7 @@ html{
 
 .box h2{
     text-align: left;
-    color: var(--text-color);
+    color: var(--corBranca);
     position: absolute;
     bottom: 1em;   
     left: 1em;
@@ -59,29 +60,119 @@ html{
     right: 0em;
     font-size: 0.7em;
     font-weight: bold;
-    color: var(--text-color);
+    color: var(--corBranca);
     padding: 1em 2em 1em 2em;
 }
 .vivo{
-    background-color: #19E68C;
+    background-color: var(--corVerde);
 }
 .morto{
-    background-color: #F86300;
+    background-color: var(--corLaranja);
 }
 .apelido-personagem{
     position: absolute;
     bottom: 0em;
     left: 1em;
     text-align: left;
-    color: var(--text-color);
+    color: var(--corBranca);
     font-size: 0.7em;
     font-weight: bold;
     font-style: italic;
 }
 
-.row2{
+.container-logo{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 2em 5em 2em 5em;
+    align-items: center;
+}
+.container-logo img{
+    display: flex;
+    box-sizing: border-box;
+    height: 6em;
+}
+.container-logo button{
+    border:0;
+    background-color: transparent;
+    color: var(--corBranca);
+    font-weight: bold;
+    font-size: 0.8em;
+}
+.container-logo button:hover{
+    opacity:0.7;
+}
+
+.container-personagens-filtro{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2em 5em 0em 5em;
+    align-items: center;
+}
+.container-personagens-filtro button{
+    background-color: transparent;
+    border-radius: 2px;
+    padding: 0.5em 2.5em 0.5em 2.5em;
+    font-size: 0.7em;
+    font-weight: bold;
+    margin-left: 1em;
+}
+.container-personagens-filtro .filtroMorto{
+    color: var(--corLaranja);
+    border: 1px solid var(--corLaranja);
+}
+.container-personagens-filtro .filtroMorto:hover{
+    color: var(--corPreta);
+    background-color: var(--corLaranja);
+    border: 1px solid var(--corLaranja);
+}
+.container-personagens-filtro .filtroVivo{
+    color: var(--corVerde);
+    border: 1px solid var(--corVerde);
+}
+.container-personagens-filtro .filtroVivo:hover{
+    color: var(--corPreta);
+    background-color: var(--corVerde);
+    border: 1px solid var(--corVerde);
+}
+.container-personagens-filtro .filtroTodos{
+    color: var(--corBranca);
+    border: 1px solid var(--corBranca);
+}
+.container-personagens-filtro .filtroTodos:hover{
+    color: var(--corPreta);
+    background-color: var(--corBranca);
+    border: 1px solid var(--corBranca);
+}
+
+.container-personagens-filtro .titulopersonagens{
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--corBranca);
+}
+
+@media only screen and (max-width: 768px){
+    .container {
+        padding: 0em 0em 2em 0em;
+        margin: 0em 0em 2em 0em;
+    }
+    .box{
+        flex: 0 0 calc(50% - 2em);
+    }
+    .container-personagens-filtro{
+        flex-direction: column;
+        margin: 0em 0em 0em 0em;
+    }
+    .container-logo{
+        flex-direction: column;
+        margin: 2em 0em 0em 0em;
+    }
+    .container-logo img{
+        height: 8em;
+    }
+    .container-logo span{
+        margin-top: 3em;
+        margin-bottom: 2em;
+    }
 }
