@@ -3,26 +3,17 @@
     --corVerde: #0B5731;
     --corBranca: #ffffff;
     --corLaranja: #F86300;
+    --corCinza: #6A7575;
   }
 html{
     background-color: var(--corPreta); 
     font-family: 'Roboto', sans-serif;
     color:var(--corBranca);
 }  
+*:focus {
+    outline: none;
+}
 
-.estilobotao{
-    color: var(--corPreta);
-    background-color: var(--corBranca);
-    border: 2px solid var(--corBranca);
-    border-radius: 100px;
-    padding: 1em 2em 1em 2em;
-    font-size: 1em;
-}
-.estilobotao:hover{
-    background-color: var(--corPreta);
-    color: var(--corBranca);
-    border: 2px solid var(--corBranca);
-}
 .container{
     display: flex;  
     flex-wrap: wrap;
@@ -71,8 +62,19 @@ html{
 }
 .apelido-personagem{
     position: absolute;
-    bottom: 0em;
-    left: 1em;
+    bottom: 2em;
+    left: 2em;
+    text-align: left;
+    color: var(--corBranca);
+    font-size: 0.7em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.occupation-personagem{
+    position: absolute;
+    bottom: 1em;
+    left: 0.5em;
     text-align: left;
     color: var(--corBranca);
     font-size: 0.7em;
@@ -103,6 +105,16 @@ html{
     opacity:0.7;
 }
 
+#filtrar-nomepersonagens{
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: var(--corBranca);
+    font-size: 1.2em;
+    color: var(--corCinza);
+}
+
 .container-personagens-filtro{
     display: flex;
     flex-direction: row;
@@ -118,6 +130,7 @@ html{
     font-weight: bold;
     margin-left: 1em;
 }
+
 .container-personagens-filtro .filtroMorto{
     color: var(--corLaranja);
     border: 1px solid var(--corLaranja);
@@ -146,10 +159,40 @@ html{
     border: 1px solid var(--corBranca);
 }
 
-.container-personagens-filtro .titulopersonagens{
+.container-personagens-filtro p{
     font-size: 2em;
     font-weight: bold;
-    color: var(--corBranca);
+}
+
+.container-personagens-filtro p:nth-child(2){
+    display: flex;
+    flex: 1;
+    padding: 0 0 0 1em;
+}
+
+.container-personagens-filtro p:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.opacitydown{
+    opacity: 0.5;
+}
+.opacityback{
+    opacity: 1;
+}
+
+
+.invisivel{
+    display: none;
+}
+#filtronomeSpan{
+    position: relative;
+}
+#filtronomeSpan i{
+    position: absolute;
+    right: 0em;
+    top:0;
 }
 
 @media only screen and (max-width: 768px){

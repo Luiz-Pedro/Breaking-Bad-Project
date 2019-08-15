@@ -7,26 +7,36 @@
     <title>Breaking Bad Project</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <div class="container-logo">
+
         <img src="img/breaking-bad-logo.png" alt="Breaking Bad Logo">
-        <span><button>Personagens</button><button>Episódios</button></span>
-        <p>barra de pesquisa</p>
+        
+        <span id="filtronomeSpan">
+            <input type="text" name="filtro" id="filtrar-nomepersonagens" placeholder="Filtre por personagem">
+            <i class="fa fa-search"></i>
+        </span>
+        
     </div>
 
     <div class="container-personagens-filtro">
-        <p class="titulopersonagens">Personagens</p>
-        <p class="filtrepor">Filtre por: <button class="filtroVivo">Vivo</button><button class="filtroMorto">Morto</button><button class="filtroTodos">Todos</button></p>
+        <p class="titulopersonagens" onclick="fetchPersonagens()">Personagens</p>
+        <p class="tituloepisodios">Episódios</p>
+        <span class="filtrepor">Filtre por: <button class="filtroVivo">Vivo</button><button class="filtroMorto">Morto</button><button class="filtroTodos">Todos</button></span>
     </div>
+
     <div id="container-personagens" class="container"></div>
-    <button id="buscarpersonagens"class="estilobotao">Buscar Personagens</button>
-    
+  
+    <script src="js/main.js"></script>
+    <script src="js/filtrarNomePersonagens.js"></script>
+    <script src="js/filtrarStatusPersonagens.js"></script>
 </body>
 
-<script src="js/main.js"></script>
+
 
 </html>
