@@ -30,7 +30,7 @@ function criarBox(personagens){
 
         occupation = document.createElement("p");
         occupation.classList.add("occupation-personagem");
-        occupation.innerHTML = personagem.occupation;
+        occupation.innerHTML = personagem.occupation[0];
 
         novaBox.appendChild(imagem);
         novaBox.appendChild(nome);
@@ -44,35 +44,92 @@ function criarBox(personagens){
     
 }
 
+
+function criarBoxEpisodios(episodios){
+
+    var titulo;
+    var temporada;
+    var personagens;
+    var episodioSerie;
+    
+    var novaBox;
+    var container;
+
+    episodios.forEach(episodio => {
+        novaBox = document.createElement("div");
+        novaBox.classList.add("boxEpisodios");
+    
+        titulo= document.createElement("h2");
+        titulo.innerHTML = episodio.title;
+
+        temporada= document.createElement("p");
+        temporada.innerHTML = episodio.season;
+
+        personagens= document.createElement("p");
+        personagens.innerHTML = episodio.characters;
+
+        episodioSerie= document.createElement("p");
+        episodioSerie.innerHTML = episodio.episode;
+
+        novaBox.appendChild(titulo);
+        novaBox.appendChild(temporada);
+        novaBox.appendChild(personagens);
+        novaBox.appendChild(episodioSerie);
+
+        container = document.querySelector("#container-episodios");
+        container.appendChild(novaBox); 
+    });
+    
+}
+
 async function fetchPersonagens(){
     return fetch("https://breakingbadapi.com/api/characters")
     .then(resp => resp.json())
+    .then(apagarDivEpisodios())
     .then(personagens => criarBox(personagens))
-    .then(opacityback())
+    .then(opacity1Personagens())
     .catch(err => console.error(err))
     // .finally( () => alert('concluido'))
 }   
 
 fetchPersonagens();
 
-// async function fetchEpisodios(){
-//     return fetch("https://breakingbadapi.com/api/episodes")
-//     .then(resp => resp.json())
-//     .then(personagens => criarBox(personagens))
-//     .then(opacityback())
-//     .catch(err => console.error(err))
-//     // .finally( () => alert('concluido'))
-// }   
+async function fetchEpisodios(){
+    return fetch("https://breakingbadapi.com/api/episodes")
+    .then(resp => resp.json())
+    .then(apagarDivPersonagens())
+    .then(episodios => criarBoxEpisodios(episodios))
+    .then(opacity1Episodios())
+    .catch(err => console.error(err))
+    // .finally( () => alert('concluido'))
+}   
 
-function opacityback(){
+function apagarDivPersonagens(){
+    var divEpisodios = document.querySelector("#container-episodios");
+    var divPersonagens = document.querySelector("#container-personagens");
+    divPersonagens.classList.add("invisivel");
+    divEpisodios.classList.remove("invisivel");
+}
+function apagarDivEpisodios(){
+    var divEpisodios = document.querySelector("#container-episodios");
+    var divPersonagens = document.querySelector("#container-personagens");
+    divEpisodios.classList.add("invisivel");
+    divPersonagens.classList.remove("invisivel");
+}
+
+function opacity1Personagens(){
     var titulopersonagens = document.querySelector(".titulopersonagens");
     var tituloepisodios =document.querySelector(".tituloepisodios");
-    titulopersonagens.classList.add("opacityback");
-    tituloepisodios.classList.add("opacitydown");
+    tituloepisodios.classList.remove("opacity1");
+    titulopersonagens.classList.add("opacity1");
+    tituloepisodios.classList.add("opacity05");
 }
-function opacitydown(){
+function opacity1Episodios(){
     var titulopersonagens = document.querySelector(".titulopersonagens");
     var tituloepisodios =document.querySelector(".tituloepisodios");
-    titulopersonagens.classList.add("opacitydown");
-    tituloepisodios.classList.add("opacityback");
+    titulopersonagens.classList.remove("opacity1");
+    titulopersonagens.classList.add("opacity05");
+    tituloepisodios.classList.add("opacity1");
 }
+
+

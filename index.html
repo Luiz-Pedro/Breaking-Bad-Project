@@ -26,11 +26,13 @@
 
     <div class="container-personagens-filtro">
         <p class="titulopersonagens" onclick="fetchPersonagens()">Personagens</p>
-        <p class="tituloepisodios">Episódios</p>
+        <p class="tituloepisodios" onclick="fetchEpisodios()">Episódios</p>
         <span class="filtrepor">Filtre por: <button class="filtroVivo">Vivo</button><button class="filtroMorto">Morto</button><button class="filtroTodos">Todos</button></span>
     </div>
 
     <div id="container-personagens" class="container"></div>
+
+    <div id="container-episodios" class="containerEpisodios"></div>
   
     <script src="js/main.js"></script>
     <script src="js/filtrarNomePersonagens.js"></script>

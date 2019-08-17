@@ -62,8 +62,8 @@ html{
 }
 .apelido-personagem{
     position: absolute;
-    bottom: 2em;
-    left: 2em;
+    top:0em;
+    left: 1em;
     text-align: left;
     color: var(--corBranca);
     font-size: 0.7em;
@@ -73,7 +73,7 @@ html{
 
 .occupation-personagem{
     position: absolute;
-    bottom: 1em;
+    bottom: 0em;
     left: 0.5em;
     text-align: left;
     color: var(--corBranca);
@@ -171,21 +171,10 @@ html{
 }
 
 .container-personagens-filtro p:hover{
-    opacity: 0.5;
+    
     cursor: pointer;
 }
 
-.opacitydown{
-    opacity: 0.5;
-}
-.opacityback{
-    opacity: 1;
-}
-
-
-.invisivel{
-    display: none;
-}
 #filtronomeSpan{
     position: relative;
 }
@@ -194,6 +183,41 @@ html{
     right: 0em;
     top:0;
 }
+.containerEpisodios{
+    display: flex;  
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+    padding: 0em 2em 2em 2em;
+    margin: 0em 2em 2em 2em;
+}
+.boxEpisodios{
+    display: flex;
+    
+    flex: 0 0 calc(100% - 2em);
+
+    border: 1px solid red;
+    box-sizing: border-box;
+    /* padding: 1em 1em 1em 1em; */
+    margin: 1em 1em 1em 1em;
+    position: relative;
+    height: 150px;
+}
+
+.opacity05{
+    opacity: 0.5;
+}
+.opacity1{
+    opacity: 1;
+}
+
+
+.invisivel{
+    display: none;
+}
+
+
 
 @media only screen and (max-width: 768px){
     .container {
