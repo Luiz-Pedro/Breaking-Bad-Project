@@ -1,3 +1,5 @@
+
+
 function criarBox(personagens){
 
     var nome;
@@ -49,32 +51,75 @@ function criarBoxEpisodios(episodios){
 
     var titulo;
     var temporada;
-    var personagens;
     var episodioSerie;
+    var airDate;
+    var personagens;
     
     var novaBox;
     var container;
 
+    var div1;
+    var subdiv1;
+    var div2;
+    var div3;
+
+    var paragrafoPersonagens;
+    var paragrafoDataDeEstreia;
+
     episodios.forEach(episodio => {
         novaBox = document.createElement("div");
         novaBox.classList.add("boxEpisodios");
-    
-        titulo= document.createElement("h2");
+
+        div1 = document.createElement("div");
+        div1.classList.add("div1");
+
+        titulo= document.createElement("p");
         titulo.innerHTML = episodio.title;
+        titulo.classList.add("titulo");
+
+        subdiv1 = document.createElement("div");
+        subdiv1.classList.add("subdiv1");
 
         temporada= document.createElement("p");
-        temporada.innerHTML = episodio.season;
+        temporada.innerHTML = "Temporada: "+episodio.season;
+
+        episodioSerie= document.createElement("p");
+        episodioSerie.innerHTML = "Episódio: "+episodio.episode;
+
+        div2 = document.createElement("div");
+        div2.classList.add("div2");
+
+        airDate = document.createElement("p");
+        airDate.innerHTML = episodio.air_date;
+
+        paragrafoDataDeEstreia = document.createElement("p");
+        paragrafoDataDeEstreia.innerHTML = "Data de estreia:"
+
+        div3 = document.createElement("div");
+        div3.classList.add("div3");
 
         personagens= document.createElement("p");
         personagens.innerHTML = episodio.characters;
 
-        episodioSerie= document.createElement("p");
-        episodioSerie.innerHTML = episodio.episode;
+        paragrafoPersonagens = document.createElement("p");
+        paragrafoPersonagens.innerHTML = "Personagens:";
 
-        novaBox.appendChild(titulo);
-        novaBox.appendChild(temporada);
-        novaBox.appendChild(personagens);
-        novaBox.appendChild(episodioSerie);
+        div1.appendChild(titulo);
+
+        subdiv1.appendChild(temporada);
+        subdiv1.appendChild(episodioSerie);
+
+        div1.appendChild(subdiv1);
+
+        div2.appendChild(paragrafoDataDeEstreia);
+        div2.appendChild(airDate);
+
+        div3.appendChild(paragrafoPersonagens);
+        div3.appendChild(personagens);
+
+        novaBox.appendChild(div1);
+        novaBox.appendChild(div2);
+        novaBox.appendChild(div3);
 
         container = document.querySelector("#container-episodios");
         container.appendChild(novaBox); 
@@ -82,12 +127,21 @@ function criarBoxEpisodios(episodios){
     
 }
 
+var flagpersonagem = 0;
+function flag(personagens){
+    if(personagens != null){
+        flagpersonagem = 1;
+        criarBox(personagens);
+    }
+}
+
 async function fetchPersonagens(){
     return fetch("https://breakingbadapi.com/api/characters")
     .then(resp => resp.json())
     .then(apagarDivEpisodios())
-    .then(personagens => criarBox(personagens))
+    .then(personagens => flag(personagens))
     .then(opacity1Personagens())
+
     .catch(err => console.error(err))
     // .finally( () => alert('concluido'))
 }   
@@ -103,6 +157,7 @@ async function fetchEpisodios(){
     .catch(err => console.error(err))
     // .finally( () => alert('concluido'))
 }   
+
 
 function apagarDivPersonagens(){
     var divEpisodios = document.querySelector("#container-episodios");

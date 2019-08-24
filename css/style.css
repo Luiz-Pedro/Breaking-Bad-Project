@@ -1,5 +1,5 @@
 :root {
-    --corPreta: #222326; 
+    --corPreta: #1D1E20; 
     --corVerde: #0B5731;
     --corBranca: #ffffff;
     --corLaranja: #F86300;
@@ -7,7 +7,7 @@
   }
 html{
     background-color: var(--corPreta); 
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lexend Deca', sans-serif;
     color:var(--corBranca);
 }  
 *:focus {
@@ -183,26 +183,50 @@ html{
     right: 0em;
     top:0;
 }
+
 .containerEpisodios{
-    display: flex;  
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    
     padding: 0em 2em 2em 2em;
     margin: 0em 2em 2em 2em;
 }
 .boxEpisodios{
     display: flex;
-    
-    flex: 0 0 calc(100% - 2em);
-
-    border: 1px solid red;
+    /* border: 1px solid red; */
     box-sizing: border-box;
     /* padding: 1em 1em 1em 1em; */
-    margin: 1em 1em 1em 1em;
+    margin: 1em 5em 1em 5em;
     position: relative;
     height: 150px;
+    border-bottom: solid 1px var(--corCinza);
+
+}
+
+.div1{
+    width: 33.33%;
+}
+.div2{
+    width: 33.33%;
+    padding-left: 2em;
+    opacity: 0.6;
+}
+.div3{
+    width: 33.33%;
+    opacity: 0.6;
+}
+.subdiv1{
+    display: flex;
+    box-sizing: content-box;
+    margin: 0;
+}
+.subdiv1 p{
+    margin: 0;
+    margin-right: 0.5em; 
+    opacity: 0.6;
+}
+
+.titulo{
+    margin:0;
+    font-size: 2em;
+    font-weight: bold;
 }
 
 .opacity05{
@@ -211,8 +235,6 @@ html{
 .opacity1{
     opacity: 1;
 }
-
-
 .invisivel{
     display: none;
 }
