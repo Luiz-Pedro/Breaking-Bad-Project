@@ -127,21 +127,13 @@ function criarBoxEpisodios(episodios){
     
 }
 
-var flagpersonagem = 0;
-function flag(personagens){
-    if(personagens != null){
-        flagpersonagem = 1;
-        criarBox(personagens);
-    }
-}
+
 
 async function fetchPersonagens(){
     return fetch("https://breakingbadapi.com/api/characters")
     .then(resp => resp.json())
     .then(apagarDivEpisodios())
-    .then(personagens => flag(personagens))
-    .then(opacity1Personagens())
-
+    .then(personagens => criarBox(personagens))
     .catch(err => console.error(err))
     // .finally( () => alert('concluido'))
 }   
@@ -151,40 +143,59 @@ fetchPersonagens();
 async function fetchEpisodios(){
     return fetch("https://breakingbadapi.com/api/episodes")
     .then(resp => resp.json())
-    .then(apagarDivPersonagens())
     .then(episodios => criarBoxEpisodios(episodios))
-    .then(opacity1Episodios())
     .catch(err => console.error(err))
     // .finally( () => alert('concluido'))
 }   
 
+fetchEpisodios();
 
 function apagarDivPersonagens(){
     var divEpisodios = document.querySelector("#container-episodios");
     var divPersonagens = document.querySelector("#container-personagens");
     divPersonagens.classList.add("invisivel");
     divEpisodios.classList.remove("invisivel");
-}
-function apagarDivEpisodios(){
-    var divEpisodios = document.querySelector("#container-episodios");
-    var divPersonagens = document.querySelector("#container-personagens");
-    divEpisodios.classList.add("invisivel");
-    divPersonagens.classList.remove("invisivel");
-}
-
-function opacity1Personagens(){
-    var titulopersonagens = document.querySelector(".titulopersonagens");
-    var tituloepisodios =document.querySelector(".tituloepisodios");
-    tituloepisodios.classList.remove("opacity1");
-    titulopersonagens.classList.add("opacity1");
-    tituloepisodios.classList.add("opacity05");
-}
-function opacity1Episodios(){
+    
     var titulopersonagens = document.querySelector(".titulopersonagens");
     var tituloepisodios =document.querySelector(".tituloepisodios");
     titulopersonagens.classList.remove("opacity1");
     titulopersonagens.classList.add("opacity05");
     tituloepisodios.classList.add("opacity1");
+
+    var filtroepisodios = document.querySelector("#filtroepisodioSpan");
+    filtroepisodios.classList.remove("invisivel");
+    var filtropersonagens = document.querySelector("#filtronomeSpan");
+    filtropersonagens.classList.add("invisivel");
+
+    var filtroepisodios2 = document.querySelector("#filtreporepisodios");
+    filtroepisodios2.classList.remove("invisivel");
+    var filtropersonagens2 = document.querySelector("#filtreporpersonagens");
+    filtropersonagens2.classList.add("invisivel");
+}
+
+function apagarDivEpisodios(){
+    var divEpisodios = document.querySelector("#container-episodios");
+    var divPersonagens = document.querySelector("#container-personagens");
+    divEpisodios.classList.add("invisivel");
+    divPersonagens.classList.remove("invisivel");
+
+    // troca cor dos titulos
+    var titulopersonagens = document.querySelector(".titulopersonagens");
+    var tituloepisodios =document.querySelector(".tituloepisodios");
+    tituloepisodios.classList.remove("opacity1");
+    titulopersonagens.classList.add("opacity1");
+    tituloepisodios.classList.add("opacity05");
+
+    //esconde os filtros
+    var filtroepisodios = document.querySelector("#filtroepisodioSpan");
+    filtroepisodios.classList.add("invisivel");
+    var filtropersonagens = document.querySelector("#filtronomeSpan");
+    filtropersonagens.classList.remove("invisivel");
+
+    var filtroepisodios2 = document.querySelector("#filtreporepisodios");
+    filtroepisodios2.classList.add("invisivel");
+    var filtropersonagens2 = document.querySelector("#filtreporpersonagens");
+    filtropersonagens2.classList.remove("invisivel");
 }
 
 

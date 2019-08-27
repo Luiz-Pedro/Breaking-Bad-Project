@@ -21,13 +21,28 @@
             <input type="text" name="filtro" id="filtrar-nomepersonagens" placeholder="Filtre por personagem">
             <i class="fa fa-search"></i>
         </span>
+
+        <span id="filtroepisodioSpan">
+            <input type="text" name="filtro2" id="filtrar-nomeepisodios" placeholder="Filtre por episódio">
+            <i class="fa fa-search"></i>
+        </span>
         
     </div>
 
     <div class="container-personagens-filtro">
-        <p class="titulopersonagens" onclick="fetchPersonagens()">Personagens</p>
-        <p class="tituloepisodios" onclick="fetchEpisodios()">Episódios</p>
-        <span class="filtrepor">Filtre por: <button class="filtroVivo">Vivo</button><button class="filtroMorto">Morto</button><button class="filtroTodos">Todos</button></span>
+        <p class="titulopersonagens" onclick="apagarDivEpisodios()">Personagens</p>
+        <p class="tituloepisodios" onclick="apagarDivPersonagens()">Episódios</p>
+        <span id="filtreporpersonagens"class="filtrepor">Filtre por: <button class="filtroVivo">Vivo</button><button class="filtroMorto">Morto</button><button class="filtroTodos">Todos</button></span>
+
+        <span id="filtreporepisodios" class="filtrepor">Filtre por: 
+            <select>
+                <option value="temporada1">Temporada 1</option>
+                <option value="temporada2">Temporada 2</option>
+                <option value="temporada3">Temporada 3</option>
+                <option value="temporada4">Temporada 4</option>
+                <option value="temporada5">Temporada 5</option>
+            </select>
+        </span>
     </div>
 
     <div id="container-personagens" class="container"></div>
