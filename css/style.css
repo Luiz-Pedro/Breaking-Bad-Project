@@ -255,9 +255,8 @@ html{
     background: var(--corPreta);
     color: var(--corBranca);
     font-size: inherit;
-    font-weight: inherit;;
+    font-weight: inherit;
 }
-
 
 
 @media only screen and (max-width: 768px){
@@ -271,6 +270,11 @@ html{
     .container-personagens-filtro{
         flex-direction: column;
         margin: 0em 0em 0em 0em;
+        justify-content: center;
+    }
+    .container-personagens-filtro p {
+        padding: 0em 0em 0em 0em !important;
+        margin: 0em 0em 1em 0em !important;
     }
     .container-logo{
         flex-direction: column;
@@ -282,5 +286,22 @@ html{
     .container-logo span{
         margin-top: 3em;
         margin-bottom: 2em;
+    }
+    .containerEpisodios{
+        padding: 0em 0em 0em 0em !important;
+    }
+    .boxEpisodios {
+        margin: 2em 0em 1em 0em !important;
+        height: auto;
+        padding-bottom: 2em;
+    }
+    .div1 {
+        width: 50%;
+    }
+    .div2 {
+        width: 45%;
+    }
+    .div3{
+        display: none;
     }
 }
