@@ -34,13 +34,14 @@
         <p class="tituloepisodios" onclick="apagarDivPersonagens()">Episódios</p>
         <span id="filtreporpersonagens"class="filtrepor">Filtre por: <button class="filtroVivo">Vivo</button><button class="filtroMorto">Morto</button><button class="filtroTodos">Todos</button></span>
 
-        <span id="filtreporepisodios" class="filtrepor">Filtre por: 
-            <select>
-                <option value="temporada1">Temporada 1</option>
-                <option value="temporada2">Temporada 2</option>
-                <option value="temporada3">Temporada 3</option>
-                <option value="temporada4">Temporada 4</option>
-                <option value="temporada5">Temporada 5</option>
+        <span id="filtreporepisodios">Filtre por: 
+            <select class="filtro-temporada" onchange="filtrotemporada()">
+                <option id="temporada1"value="1">Temporada 1</option>
+                <option id="temporada2"value="2">Temporada 2</option>
+                <option id="temporada3"value="3">Temporada 3</option>
+                <option id="temporada4"value="4">Temporada 4</option>
+                <option id="temporada5"value="5">Temporada 5</option>
+                <option id="todas"value="todas">Todas</option>
             </select>
         </span>
     </div>

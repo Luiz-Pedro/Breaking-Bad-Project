@@ -82,6 +82,7 @@ function criarBoxEpisodios(episodios){
 
         temporada= document.createElement("p");
         temporada.innerHTML = "Temporada: "+episodio.season;
+        temporada.classList.add("pTemporada");
 
         episodioSerie= document.createElement("p");
         episodioSerie.innerHTML = "Episódio: "+episodio.episode;
